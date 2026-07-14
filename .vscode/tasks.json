@@ -1,0 +1,39 @@
+{
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "Build",
+            "command": "C:\\msys\\ucrt64\\bin\\g++.exe",
+            "args": [
+                "-std=c++17",
+                "${file}",
+                "-lsfml-graphics",
+                "-lsfml-window",
+                "-lsfml-system",
+                "-O3",
+                "-march=native",
+                "-ffast-math",
+                "-o",
+                "${fileDirname}\\gamelife.exe"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "group": "build"
+        },
+        {
+            "type": "process",
+            "label": "Run",
+            "command": "gamelife.exe",
+            "dependsOn": "Build",
+            "group":{
+                "kind": "build",
+                "isDefault": true
+            },
+            "options": {
+                "cwd": "${fileDirname}"
+            }
+        }
+    ],
+    "version": "2.0.0"
+}
